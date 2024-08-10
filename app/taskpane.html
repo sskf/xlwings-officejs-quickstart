@@ -40,28 +40,28 @@
     // Use runPython with the desired endpoint of your web app 
     function helloTaskpane() {
       // xlwings.runPython(window.location.origin + "/hello");
-      xlwings.runPython("http://127.0.0.1/hello");
+      xlwings.runPython("https://127.0.0.1:8000/hello");
     }
 
     // Sample 2: Button on Ribbon
     // Needs event.completed() and Office.actions.associate
     // "hello-ribbon" is the identifier in manifest.xml
     function helloRibbon(event) {
-      xlwings.runPython(window.location.origin + "/hello");
+      xlwings.runPython("https://127.0.0.1:8000/hello");
       event.completed();
     }
     Office.actions.associate("hello-ribbon", helloRibbon);
 
     // Sample 3: How to use alerts
     function capitalizeSheetNamesPrompt() {
-      xlwings.runPython(window.location.origin + "/capitalize-sheet-names-prompt");
+      xlwings.runPython("https://127.0.0.1:8000/capitalize-sheet-names-prompt");
     }
     // This function gets called when the user clicks a button in the alert shown
     // by capitalizeSheetNamesPrompt. Use this function name as the callback parameter
     // in Python: book.app.alert(callback="capitalizeSheetNames")
     function capitalizeSheetNames(arg) {
       if (arg == "ok") {
-        xlwings.runPython(window.location.origin + "/capitalize-sheet-names");
+        xlwings.runPython("https://127.0.0.1:8000/capitalize-sheet-names");
       } else {
         // cancel
       }
